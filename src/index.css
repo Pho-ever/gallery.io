@@ -1,13 +1,531 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+
+:root {
+    --buttonColor: #1D1A18;
+    --fontFamily: "Montserrat", sans-serif;
+    --mainColor: #1D1A18;
+    --mainColor2: #f4f4f4;
+    --optionalColor: #666666;
+    --blackColor: #221638;
+    --fontSize: 16px;
+    --transition: 0.5s;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div, 
+ul,
+li {
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--fontFamily);
+}
+
+.container {
+    /* background-image: url('/images/computers.png'); */
+    background-image: url('/public/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    background-color: rgba(20, 18, 18, 0.562);
+    background-blend-mode: soft-light;
+    height: 100vh;
+    width: 100vw;
+    opacity: 1;
+}
+
+
+.navbar {
+    color: white;
+    background-color: transparent;
+    z-index: 10;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.sign-in{
+    border-radius: 5px;
+    padding: 0.3rem 0.7rem;
+    border: 2px solid white;
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo {
+    width: 8rem;
+    height: 8rem;
+}
+
+.sign-in:hover {
+    color: white;
+    background-color: #B20111;
+}
+
+/*=========================
+=============================
+NAVBAR-TWO CSS
+===========================================================*/
+
+
+.navbar-two{
+    color: white;
+    background-color: #b20110f8;
+    /* border: 2px solid red; */
+    z-index: 10;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    position: fixed;
+}
+
+.navbar-blur {
+    filter: blur(4px);
+}
+
+.navbar-two-header {
+    display: flex;
+}
+
+.navbar-two ul {
+    display: flex;
+    padding: 0;
+}
+
+.navbar-two ul li {
+    text-decoration: none;
+    list-style: none;
+    margin: 0 0.8rem;
+}
+
+.navbar-two-years {
+    border: 2px solid transparent;
+    position: absolute;
+    display: flex;
+    left: 16rem;
+    border: 2px solid black;
+    flex-direction: column;
+    padding: 1.3rem 1rem 0;
+}
+
+.navbar-years-list {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid blue;
+}
+
+.navbar-years-list a {
+    padding: 0.3rem 0;
+}
+
+
+/*================================================
+LANDING PAGE CSS
+=================================================*/
+
+.landing-info { 
+    height: 70vh;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    z-index: 20;
+}
+
+.landing-info h2 {
+    font-size: 3rem;
+    color: white;
+    width: 80%;
+    margin: 1rem auto;
+    line-height: 1.4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-info input,
+.landing-info button {
+    margin: 0.4rem auto;
+}
+
+.landing-info input {
+    width: 50%;
+    height: 2.5rem;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 0;
+    outline: none;
+}
+
+.landing-info .getStarted {
+    width: 10rem;
+    border-radius: 5px;
+    border: 1px solid white;
+    outline: none;
+    height: 2.8rem;
+    padding:  0 0.8rem;
+    color: white;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+
+.Typewriter__wrapper {
+    color: #B20111;
+    padding: 0 5px;
+
+}
+
+@media (max-width: 991.98px) {
+    .navbar {
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+    }
+
+    .sign-in{
+        font-size: 1rem;
+    } 
+
+    .landing-info input  {
+        width: 50%;
+    }
+    .landing-info h2{
+        font-size: 2.5rem;
+        width: 65%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .landing-info {
+        padding: 2rem;
+    }
+    .landing-info h2{
+        width: 100%;
+        font-size: 2rem;
+    }
+    .landing-info input  {
+        width: 80%;
+    }
+    .logo {
+        width: 5rem;
+        height: 5rem;
+    }
+    .sign-in {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .landing-info h2{
+        font-size: 2.4rem !important;
+    }
+
+    .landing-info input{
+        width: 80%;
+    }
+
+    .landing-info button  {
+        width: 9rem;
+    }
+}
+@media (max-width: 375.98px) {
+    .landing-info h2{
+        font-size: 1.9rem;
+    }
+}
+
+/*==========================
+============================
+SIGN IN CSS
+============================
+=============================*/
+
+.sign-in-body {
+    padding: 40px 0;
+}
+
+.sign-in-container {
+    width: 30%;
+    height: auto;
+    margin: 0 auto 4rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #837e7e98;
+    border: 2px solid #fff;
+}
+
+.sign-in-heading{
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    margin:  0 1.5rem 1.5rem;
+    display: flex;
+    justify-content:center;
+}
+
+.password {
+    position: relative;
+}
+
+.password input,
+.email input {
+    width: 100%;
+    padding: 0.8rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    margin: 2rem 0 0;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.897);
+    color: black;
+}
+
+.password label,
+.email label {
+    color: #000;
+    font-weight: 600;
+    font-size: 11px;
+    position: absolute;
+    left: 0;
+    top: 4.9rem;
+    background-color: #fff;
+    border: 1px solid #B20111;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.sign-in-container button {
+    width: 100%;
+    background-color: #B20111;
+    margin: 3rem auto 0.7rem;
+    border-radius: 5px;
+    border: 0;
+    padding: 0.8rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.sign-in-container button:disabled {
+    background-color: #868484;
+    cursor: not-allowed;
+}
+
+.sign-in-help {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding-bottom: 0.8rem;
+}
+
+.sign-up {
+    display: flex;
+    color: white;
+    gap: 10px;
+}
+
+.sign-up p {
+    color: #B20111;
+}
+
+.sign-up a {
+    color: #fff;
+}
+
+.show-password {
+    content: '';
+    position: absolute;
+    left: 90%;
+    bottom: 0.8rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    background-image: url('/public/images/visibility_eye.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.hide-password {
+    content: '';
+    position: absolute;
+    left: 90%;
+    bottom: 0.8rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    background-image: url('/public/images/feather-eye-off.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+@media (max-width: 991.98px) {
+    .sign-in-container {
+        width: 45%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .sign-in-container {
+        width: 55%;
+    }
+    
+}
+
+@media (max-width: 575.98px) {
+    .sign-in-container {
+        width: 70%;
+        padding: 1.5rem;
+    }
+    .sign-in-help,
+    .sign-up {
+        font-size:0.75rem;
+    }
+    .sign-in-heading {
+        font-size: 1.5rem;
+    }
+
+    .sign-in-container button{
+        font-size: 1rem
+    }
+
+    .hide-password,
+    .show-password {
+        width:0.9rem;
+        height:0.9rem;
+        bottom: 1rem;
+    }
+
+    .password input, 
+    .email input {
+        font-size: 0.9rem;
+    }
+}
+
+
+/*================================================
+FAV-ACTOR CSS
+=================================================*/
+.fav-actor-container,
+.fav-cartoon-container-2 {
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    background-color: black;
+    grid-gap: 40px;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    align-items: center;
+}
+
+.favactor-img {
+    width: 80%;
+    border: 2px solid white;
+}
+
+@media (max-width: 767.98px) {
+    .fav-actor-container,
+    .fav-cartoon-container-2 {
+        grid-template-columns: 12fr;
+    }
+
+    .details-2 {
+        order: -1;
+    }
+}
+
+
+
+/*================================================
+FAQ CSS
+=================================================*/
+.faq-container{
+    border: 2px sold white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.faq-container h1 {
+    margin-bottom: 0.7em;
+    margin-top: 2em;
+    font-size: 3rem;
+}
+
+.faq-container button {
+    width: 70%;
+    font-size: 1.9rem;
+    padding: 1.5rem;
+    color:#1a0f10b6;
+    font-weight: 600;
+    text-align: left;
+    border-radius:40px;
+    cursor: pointer;
+}
+
+.faq-dropdown {
+    border: 5px solid #413e3e;
+    background-color: #413e3e;
+    width: 60%;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    border-radius: 0 0 5px 5px;
+}
+
+@media (max-width: 767.98px) {
+
+    .faq-container h1 {
+        font-size: 2rem;
+    }
+    .faq-container button{
+        width: 85%;
+        font-size: 1.4rem;
+        padding: 1rem;
+    }
+
+    .faq-dropdown {
+        width: 75%;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .faq-container button{
+        font-size: 1rem;
+        padding: 0.7rem;
+    }
 }
