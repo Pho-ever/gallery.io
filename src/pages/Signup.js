@@ -20,11 +20,17 @@ export default function Signup() {
         e.preventDefault();
         try {
             createUserWithEmailAndPassword(auth, email, password)
+            setUserName("");
+            setEmail("");
+            setPassword("");
+
             toast.success("Registeration Successfully!!", {
                 position: "top-center",
               });
+              
+
             const user = auth.currentUser;
-            console.log(user);
+            // console.log(user);
             if (user) {
                 await setDoc(doc(db, "Users", user.uid), {
                     email: email,
@@ -36,9 +42,7 @@ export default function Signup() {
                 position: "top-center",
             }); 
         }
-        setUserName("");
-        setEmail("");
-        setPassword("");
+
     }
 
     // const handleSubmit = async (e) => {
@@ -60,6 +64,7 @@ export default function Signup() {
                         required
                         type='name' 
                         placeholder='Username'
+                        value={userName}
                         onChange={e => setUserName(e.target.value)}
                         />
                     </div>
@@ -69,6 +74,7 @@ export default function Signup() {
                         required
                         type='email' 
                         placeholder='Email'
+                        value={email}
                         onChange={e => setEmail(e.target.value)}
                          />
                     </div>
@@ -79,6 +85,7 @@ export default function Signup() {
                             required
                             type={showPassword ? 'text' : 'password'}
                             placeholder='Password'
+                            value={password}
                             onChange={e => setPassword(e.target.value)}/>
                         <div
                             className={`${showPassword ? 'show-password' : 'hide-password'}`}

@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 const Login = () => {
 
     const [showPassword, setShowPassword] = useState(false);
-    const [password, setPassword] = useState(false);
+    const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const handlePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -18,6 +18,8 @@ const Login = () => {
         e.preventDefault();
         try {
             await signInWithEmailAndPassword(auth, email, password)
+            setEmail("");
+            setPassword("");
             toast.success("Login Successfully!!", {
                 position: "top-center",
               });
@@ -27,8 +29,7 @@ const Login = () => {
                 position: "top-center",
               });
         }
-        setEmail("");
-        setPassword("");
+
     }
 
 
@@ -42,6 +43,7 @@ const Login = () => {
                         <input 
                         type='email' 
                         placeholder='Email'
+                        value={email}
                         onChange={e => setEmail(e.target.value)}/>
                     </div>
 
@@ -49,6 +51,7 @@ const Login = () => {
                         <input
                             type={showPassword ? 'text' : 'password'}
                             placeholder='Password'
+                            value={password}
                             onChange={e => setPassword(e.target.value)}
                         />
                         <div
