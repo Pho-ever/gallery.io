@@ -23,10 +23,12 @@ const Login = () => {
               });
               window.location.href="/home"
         } catch (error) {
-            toast.error(error.message, {
+            toast.error("Invalid email or password", {
                 position: "top-center",
               });
         }
+        setEmail("");
+        setPassword("");
     }
 
 

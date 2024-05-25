@@ -2,12 +2,13 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth"
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
   apiKey: "AIzaSyAn9qglwN7JAQaXUi2sgqfVqZGGKrFmz6k",
   authDomain: "image-gallery-94815.firebaseapp.com",
@@ -23,5 +24,19 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const analytics = getAnalytics(app);
 const db = getFirestore(app)
+
+// collections ref
+const colRef = collection(db, "Users")
+
+// get collection data
+getDocs(colRef)
+  .then((snapshot) => {
+    let users = []
+    snapshot.docs.forEach((doc)=> {
+      users.push({...doc.data(), id: doc.id})
+    })
+    // console.log(users)
+  })
+
 
 export {app, auth, analytics, db};

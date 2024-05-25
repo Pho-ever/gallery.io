@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import './../index.css';
 import { auth, db } from "./../firebase/firebase";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -20,24 +20,34 @@ export default function Signup() {
         e.preventDefault();
         try {
             createUserWithEmailAndPassword(auth, email, password)
+            toast.success("Registeration Successfully!!", {
+                position: "top-center",
+              });
             const user = auth.currentUser;
             console.log(user);
             if (user) {
                 await setDoc(doc(db, "Users", user.uid), {
-                    email:user.email,
+                    email: email,
                     displayName: userName
                 })
             }
-            toast.success("Registeration Successfully!!", {
-                position: "top-center",
-              });
         } catch (error) {
             toast.error(error.message, {
                 position: "top-center",
-              });
-
+            }); 
         }
+        setUserName("");
+        setEmail("");
+        setPassword("");
     }
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     console.log("Username:", userName)
+    //     console.log("Email:", email)
+    //     console.log("Password:", password)
+    // }
+
 
     return (
         <div className="container">
@@ -74,10 +84,10 @@ export default function Signup() {
                             className={`${showPassword ? 'show-password' : 'hide-password'}`}
                             onClick={handlePasswordVisibility}>
                         </div>
-                        {password < 6 ? <label>Password must be more than 6 letters</label> : ""}
+                        {password.length < 6 ? <label>Password must be more than 6 letters</label> : ""}
                     </div>
 
-                    <button>SIGN UP</button>
+                    <button disabled={password.length < 6 ? true : false}>SIGN UP</button>
                     <div className="sign-in-help">
                     </div>
                     <div className="sign-up">
