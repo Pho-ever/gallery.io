@@ -19,12 +19,11 @@ export default function Landing() {
                     <h2> Upload, Save And Edit Your</h2>
                     <h2> Favourite 
                     <Typewriter
-                        // wrapperClassName="Typewriter__wrapper"
                         options={{
                             strings: ['PNG', 'JPEG', 'JPG'],
                             autoStart: true,
                             loop: true,
-                            delay: 40,
+                            delay: 50,
                         }}/> Images</h2> 
                     </div>
                     <a href="/signup">

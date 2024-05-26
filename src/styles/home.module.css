@@ -132,6 +132,7 @@
     border: 0;
     background-color: #b20110a4;
     cursor: pointer;
+    color: #fff;
   }
   
   @keyframes shake {

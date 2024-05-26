@@ -2,15 +2,13 @@
 import styles from "../styles/imageGallery.module.css";
 import useFIrestore from '../hooks/useFirestore';
 import { TailSpin } from 'react-loader-spinner';
-import formatDate from "../util/formatDate";
 
 export default function ImageGallery() {
 
   const { docs: images, isLoading } = useFIrestore('images');
 
   return (
-    <div >
-
+    <div>
       {
           isLoading ? 
         <div className={styles.loader}>
@@ -32,13 +30,8 @@ export default function ImageGallery() {
           </div>
             ))
           }
-          
-
         </div>
-        
       }
-
-  
     </div>
   )
 }

@@ -16,7 +16,6 @@ const useFIrestore = (collectionName: string) => {
 
     useEffect(() => {
         let unsubscribe: () => void
-
         const getData = async () => {
             try {
                 const q = query(collection(db, collectionName), orderBy("createdAt", "desc"));
@@ -51,9 +50,7 @@ const useFIrestore = (collectionName: string) => {
 
   return {
     docs, isLoading
-
   }
-  
 }
 
 export default useFIrestore;

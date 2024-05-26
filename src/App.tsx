@@ -17,7 +17,13 @@ function App() {
       <div>
             <Routes>
             <Route path="/" element={<Landing/>}/>
-            <Route path="/login" element={<Login/>}/>
+
+            <Route path="/login" element={
+              <PublicRoute>
+              <Login/>
+            </PublicRoute>
+            }/>
+
             <Route path="/signup" element={
               <PublicRoute>
                 <Signup/>
