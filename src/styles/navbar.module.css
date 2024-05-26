@@ -1,15 +1,11 @@
 .nav {
-    max-width: 1500px;
-    margin: 0 auto;
     display: flex;
-    border: 1px solid #6b6969;
-    border-radius: 20px;
     justify-content: space-between;
-    padding: 10px 5px;
+    padding: 20px 5px;
 }
 
 .nav button{
-    background-color: #B20111;
+    background-color: #b20110dc;
     border-radius: 10px;
     border: 0;
     padding: 0.8rem;

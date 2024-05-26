@@ -1,12 +1,14 @@
+import React from 'react';
 import { useState } from 'react'
 import './../index.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from "./../firebase/firebase";
+import { auth } from "../firebase/firebase";
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
-
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
@@ -14,16 +16,16 @@ const Login = () => {
         setShowPassword(!showPassword);
     };  
   
-    const handleSubmit = async(e) => {
+    const handleSubmit = async(e : any) => {
         e.preventDefault();
         try {
             await signInWithEmailAndPassword(auth, email, password)
+            navigate('/home')
             setEmail("");
             setPassword("");
-            toast.success("Login Successfully!!", {
+            toast.success("Welcome back", {
                 position: "top-center",
               });
-              window.location.href="/home"
         } catch (error) {
             toast.error("Invalid email or password", {
                 position: "top-center",
@@ -36,6 +38,7 @@ const Login = () => {
     return (
         <div className="container">
             <div className="sign-in-body">
+            <h2>Gallery.io</h2>
                 <form className="sign-in-container" onSubmit={handleSubmit}>
                     <div className="sign-in-heading">LOGIN</div>
 

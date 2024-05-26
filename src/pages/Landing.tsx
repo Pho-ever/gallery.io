@@ -19,7 +19,7 @@ export default function Landing() {
                     <h2> Upload, Save And Edit Your</h2>
                     <h2> Favourite 
                     <Typewriter
-                        wrapperClassName="Typewriter__wrapper"
+                        // wrapperClassName="Typewriter__wrapper"
                         options={{
                             strings: ['PNG', 'JPEG', 'JPG'],
                             autoStart: true,

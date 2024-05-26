@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth"
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,19 +24,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const analytics = getAnalytics(app);
 const db = getFirestore(app)
-
-// collections ref
-const colRef = collection(db, "Users")
-
-// get collection data
-getDocs(colRef)
-  .then((snapshot) => {
-    let users = []
-    snapshot.docs.forEach((doc)=> {
-      users.push({...doc.data(), id: doc.id})
-    })
-    // console.log(users)
-  })
 
 
 export {app, auth, analytics, db};

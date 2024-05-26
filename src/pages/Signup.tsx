@@ -1,73 +1,53 @@
+import React from 'react';
 import { useState } from 'react';
+import { auth } from "../firebase/firebase";
 import './../index.css';
-import { auth, db } from "./../firebase/firebase";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
-import { setDoc, doc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
+
+
 
 
 export default function Signup() {
-    const [userName, setUserName] = useState("")
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("")
     
     const handlePasswordVisibility = () => {
-        setShowPassword(!showPassword)};
+        setShowPassword(!showPassword)
+    };
 
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e : any) => {
         e.preventDefault();
         try {
-            createUserWithEmailAndPassword(auth, email, password)
-            setUserName("");
-            setEmail("");
-            setPassword("");
-
-            toast.success("Registeration Successfully!!", {
+            await createUserWithEmailAndPassword(auth, email, password)
+            navigate('/home')
+            toast.success("Welcome", {
                 position: "top-center",
               });
-              
-
-            const user = auth.currentUser;
-            // console.log(user);
-            if (user) {
-                await setDoc(doc(db, "Users", user.uid), {
-                    email: email,
-                    displayName: userName
-                })
-            }
-        } catch (error) {
-            toast.error(error.message, {
+        } catch (error:any) {
+            setErrorMessage(error.message)
+        }
+        if (errorMessage !== "") {
+            toast.error(errorMessage, {
                 position: "top-center",
-            }); 
+              });
         }
 
     }
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     console.log("Username:", userName)
-    //     console.log("Email:", email)
-    //     console.log("Password:", password)
-    // }
 
 
     return (
         <div className="container">
             <div className="sign-in-body">
+                <h2>Gallery.io</h2>
                 <form className="sign-in-container" onSubmit={handleSubmit}>
                     <div className="sign-in-heading">SIGN UP</div>
-
-                    <div className="email">
-                        <input 
-                        required
-                        type='name' 
-                        placeholder='Username'
-                        value={userName}
-                        onChange={e => setUserName(e.target.value)}
-                        />
-                    </div>
 
                     <div className="email">
                         <input 

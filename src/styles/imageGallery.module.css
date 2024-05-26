@@ -1,0 +1,27 @@
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 30px;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.image {
+    border-radius: 20px;
+}
+
+.imageContainer {
+    max-width: 350px;
+    min-width: 300px;
+    border-radius: 20px;
+    border: 2px solid red;
+}
+
+.imageContainer img{
+    background-size: contain;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 20px;
+}
+

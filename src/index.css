@@ -273,6 +273,13 @@ SIGN IN CSS
     padding: 40px 0;
 }
 
+.sign-in-body h2{
+    color: #fff;
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+
 .sign-in-container {
     width: 30%;
     height: auto;

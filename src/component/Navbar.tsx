@@ -1,17 +1,18 @@
 import React from 'react';
 import styles from "../styles/navbar.module.css";
 import logo from "../icons/logo.svg";
-import { auth } from "./../firebase/firebase";
+import { auth } from '../firebase/firebase';
+import { signOut } from 'firebase/auth';
 
 export default function Navbar() {
 
-    async function handleLogout() {
+  
+    const handleLogout= async () => {
         try {
-          await auth.signOut();
+          await signOut(auth);
           window.location.href = "/login";
-          console.log("User logged out successfully!");
         } catch (error) {
-          console.error("Error logging out:", error.message);
+          console.error("Error logging out:");
         }
       }
 
@@ -24,7 +25,8 @@ export default function Navbar() {
         <div>
             <button
                 onClick={handleLogout}
-            >Logout</button>
+            >
+              Logout</button>
         </div>
     </nav>
   )
