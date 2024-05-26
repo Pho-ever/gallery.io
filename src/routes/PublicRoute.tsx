@@ -10,7 +10,7 @@ interface PublicRouteProps {
 const PublicRoute: FC<PublicRouteProps>= ({children}) => {
 
     const { user } = useAuth();
-    console.log(user)
+    // console.log(user)
 
     if (user) {
         return <Navigate to="/home" replace={true}/>
