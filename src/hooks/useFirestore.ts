@@ -13,12 +13,13 @@ const useFIrestore = (collectionName: string) => {
     }
     const [docs, setDocs] = useState<Image[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [orderByAction, setOrderByAction] = useState<string>("createdAt");
 
     useEffect(() => {
         let unsubscribe: () => void
         const getData = async () => {
             try {
-                const q = query(collection(db, collectionName), orderBy("createdAt", "desc"));
+                const q = query(collection(db, collectionName), orderBy(orderByAction, "desc"));
                 unsubscribe = onSnapshot(q, (querySnapshot) => {
                   const images: Image[] = [];
                   querySnapshot.forEach((doc) => {

@@ -10,6 +10,10 @@ import { AuthProvider } from "./context/auth";
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+
 function App() {
 
   return (  
