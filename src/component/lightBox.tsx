@@ -5,10 +5,9 @@ import next from "../icons/next.svg";
 import previous from "../icons/previous.svg";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { ImageEditorComponent } from '@syncfusion/ej2-react-image-editor';
 import { useState } from "react";
 
-
+import { ImageEditorComponent } from '@syncfusion/ej2-react-image-editor';
 
 interface LightboxProps {
     closeLightBox : () => void
@@ -23,16 +22,11 @@ interface LightboxProps {
 export default function LightBox({closeLightBox, userUrl, userEmail, userCaption, userDesc, prevSlide, nextSlide }: LightboxProps) {
 
   const [ showEdit, setShowEdit ] = useState(false)
-  // const [ image, setImage ] = useState(userUrl)
-
   let imageObj: ImageEditorComponent;
 
   const openImage = () => {
-    imageObj.open("https://firebasestorage.googleapis.com/v0/b/image-gallery-94815.appspot.com/o/images%2Faaa7392b-a4a6-44cc-98db-87e9be0feac9.png?alt=media&token=a1f4f1a1-b0bc-4821-a697-32c59628cb27")
+    imageObj.open(userUrl)
   }
-
-  // console.log("image:", image)
-
 
   return (
     <div>
@@ -92,7 +86,6 @@ export default function LightBox({closeLightBox, userUrl, userEmail, userCaption
                 <div>
                   <div id="wrapperDiv" style={{height:'500px'}}>
                       <ImageEditorComponent created={openImage.bind({userUrl})} ref={ImageEditor=> {imageObj = ImageEditor as ImageEditorComponent}}> 
-
                       </ImageEditorComponent>
                   </div>
                 </div>}
@@ -103,3 +96,4 @@ export default function LightBox({closeLightBox, userUrl, userEmail, userCaption
     </div>
   )
 }
+

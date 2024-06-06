@@ -8,6 +8,7 @@ import FilterDropdown from "./filterDropdown"
 
 
 
+
 export default function ImageGallery() {
 
   const { docs: images, isLoading } = useFIrestore('images');
@@ -17,18 +18,6 @@ export default function ImageGallery() {
     const activeIndex = dropdownIndex === index ? -1 : index
     setIsDropdownIndex(activeIndex)
   }
-
-  // useEffect(()=> {
-  //   document.addEventListener('keydown', detectKeydown, true)
-  // }, [])
-
-  // const detectKeydown = (e: any) => {
-  //   if ( dropdownIndex !== -1 && e.key === "ArrowLeft") {
-  //     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-  //     dropdownIndex - 1
-  //   }
-  // }
-
 
   const handledPrevImage = (index: any) => {
     return handleShowLightbox(index - 1)
@@ -79,7 +68,7 @@ export default function ImageGallery() {
       ))
     }
         </div>
-        </>
+      </>
         
   } 
   </div>
