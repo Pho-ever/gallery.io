@@ -8,10 +8,11 @@ export default function FilterDropdown() {
   return (
     <div className={styles.dropdown}>
           <button onClick={()=> setFilterdropdown(!filterDropdown)}>
-              Filter
+              Filter By
             </button>
 
             { filterDropdown && <div className={styles.activeDropdown}>
+
               <p>hello</p>
               <p>hello</p>
               <p>hello</p>

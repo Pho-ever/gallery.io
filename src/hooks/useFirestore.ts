@@ -2,7 +2,8 @@ import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { useEffect, useState } from 'react'
 import { db } from '../firebase/firebase';
 
-const useFIrestore = (collectionName: string) => {
+const useFIrestore = (
+  collectionName: string) => {
 
     type Image = {
         userEmail: string,
@@ -37,6 +38,7 @@ const useFIrestore = (collectionName: string) => {
                     })
                   });
                   setDocs(images);
+                  setOrderByAction("createdAt")
                   setIsLoading(false)
                 });
             } catch (error) {

@@ -36,7 +36,7 @@ export default function ImageGallery() {
         </div> 
         : 
         <>
-          <FilterDropdown/>
+          {/* <FilterDropdown/> */}
           <div className={styles.container}>
             {
             images.map((image, index) => (

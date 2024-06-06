@@ -53,7 +53,8 @@ export default function LightBox({closeLightBox, userUrl, userEmail, userCaption
                       
                       <div>
                         <button className={styles.share} onClick={()=> setShowEdit(!showEdit)}>
-                          <img src={share} alt="share" width={30}/>
+                          <img src={share} alt="share" width={22}/>
+                          {!showEdit ? "Edit" : "Close Edit"}
                         </button>
                       </div>
                   </div>
