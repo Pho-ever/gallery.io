@@ -48,6 +48,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    margin-top: 150px;
 }
 
 .lightBox {
@@ -215,10 +216,12 @@
     justify-content: end;
 }
 
-.dropdown button{
+.dropdown > button{
     display: flex;
-    width: 120px;
+    width: 160px;
     margin-top: 10px;
+    font-size: 15px;
+    text-transform: capitalize;
     align-items: center;
     justify-content: center;
     padding: 10px;
@@ -226,18 +229,31 @@
     cursor: pointer;
     border-radius: 8px;
     outline: none;
-    border: 1px solid red;
+    color: #fff;
+    background-color: #b20110a4;
+    border: 1px solid #b20110a4;
 }
 
 .activeDropdown {
     position: absolute;
     background-color: #fff;
-    width: 120px;
+    width: 160px;
     top: 55px;
     border: 1px solid red;
     box-sizing: border-box;
     padding: 5px;
     border-radius: 8px;
+}
+
+.activeDropdown button {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 @media (max-width: 980px) {

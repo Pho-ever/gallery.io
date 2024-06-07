@@ -6,7 +6,7 @@
 @import "../node_modules/@syncfusion/ej2-navigations/styles/bootstrap5.css";
 @import "../node_modules/@syncfusion/ej2-image-editor/styles/bootstrap5.css";
 
-
+/* 
 .App {
   text-align: center;
 }
@@ -44,4 +44,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

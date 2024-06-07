@@ -1,6 +1,6 @@
 
 import styles from "../styles/imageGallery.module.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useFIrestore from '../hooks/useFirestore';
 import { TailSpin } from 'react-loader-spinner';
 import LightBox from "./lightBox"
@@ -11,9 +11,18 @@ import FilterDropdown from "./filterDropdown"
 
 export default function ImageGallery() {
 
-  const { docs: images, isLoading } = useFIrestore('images');
-  const [dropdownIndex, setIsDropdownIndex] = useState(-1)
+  const { docs: images, isLoading, setOrderByAction } = useFIrestore('images');
+  const [dropdownIndex, setIsDropdownIndex] = useState(-1);
 
+  const [ selectedValue, setSelectedValue] = useState("createdAt")
+
+
+  const filter = [ "createdAt", "userEmail", "userDescription", "userCaption", "imageUrl"]
+
+  const handleUserClick = (filter: string) => {
+    setSelectedValue(filter);
+  };
+  
   const handleShowLightbox = (index: any) => {
     const activeIndex = dropdownIndex === index ? -1 : index
     setIsDropdownIndex(activeIndex)
@@ -27,6 +36,11 @@ export default function ImageGallery() {
     return handleShowLightbox(index + 1)
   }
 
+  useEffect(() => {
+    // Example of setting the order by action from outside the hook
+    setOrderByAction(selectedValue); // Change the order by field as needed
+  }, [selectedValue, setOrderByAction]);
+
   return (
     <div>
       {
@@ -36,7 +50,8 @@ export default function ImageGallery() {
         </div> 
         : 
         <>
-          {/* <FilterDropdown/> */}
+          <FilterDropdown data={filter} onUserClick={handleUserClick} pickedd={selectedValue}/>
+
           <div className={styles.container}>
             {
             images.map((image, index) => (

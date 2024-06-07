@@ -6,8 +6,8 @@ import previous from "../icons/previous.svg";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { useState } from "react";
-
 import { ImageEditorComponent } from '@syncfusion/ej2-react-image-editor';
+import ShareButtons from "./ShareButtons";
 
 interface LightboxProps {
     closeLightBox : () => void
@@ -37,6 +37,8 @@ export default function LightBox({closeLightBox, userUrl, userEmail, userCaption
                     <img src={close} alt="close" width="30px"/>
                   </button>
               </div>
+
+              
                 
               <div className={styles.lightBox2}>
                 <div className={styles.lightContainer}>
@@ -50,6 +52,8 @@ export default function LightBox({closeLightBox, userUrl, userEmail, userCaption
                             <p>Caption: {userCaption}</p>
                           <p>Description: {userDesc}</p>
                         </div>
+
+                        <ShareButtons/>
                       
                       <div>
                         <button className={styles.share} onClick={()=> setShowEdit(!showEdit)}>

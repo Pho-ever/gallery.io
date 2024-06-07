@@ -2,8 +2,7 @@ import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { useEffect, useState } from 'react'
 import { db } from '../firebase/firebase';
 
-const useFIrestore = (
-  collectionName: string) => {
+const useFIrestore = ( collectionName: string ) => {
 
     type Image = {
         userEmail: string,
@@ -19,6 +18,7 @@ const useFIrestore = (
     useEffect(() => {
         let unsubscribe: () => void
         const getData = async () => {
+          setIsLoading(true)
             try {
                 const q = query(collection(db, collectionName), orderBy(orderByAction, "desc"));
                 unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -38,7 +38,7 @@ const useFIrestore = (
                     })
                   });
                   setDocs(images);
-                  setOrderByAction("createdAt")
+                  // setOrderByAction("createdAt")
                   setIsLoading(false)
                 });
             } catch (error) {
@@ -49,10 +49,10 @@ const useFIrestore = (
  
         getData();
         return () => unsubscribe && unsubscribe();
-    }, [collectionName])
+    }, [collectionName, orderByAction])
 
   return {
-    docs, isLoading
+    docs, isLoading, setOrderByAction
   }
 }
 

@@ -92,7 +92,8 @@ body {
 /*=========================
 =============================
 NAVBAR-TWO CSS
-===========================================================*/
+=============================
+==============================*/
 
 
 .navbar-two{
@@ -463,7 +464,7 @@ SIGN IN CSS
 /*================================================
 FAV-ACTOR CSS
 =================================================*/
-.fav-actor-container,
+/* .fav-actor-container,
 .fav-cartoon-container-2 {
     display: grid;
     grid-template-columns: 6fr 6fr;
@@ -489,14 +490,14 @@ FAV-ACTOR CSS
     .details-2 {
         order: -1;
     }
-}
+} */
 
 
 
 /*================================================
 FAQ CSS
 =================================================*/
-.faq-container{
+/* .faq-container{
     border: 2px sold white;
     display: flex;
     flex-direction: column;
@@ -553,7 +554,7 @@ FAQ CSS
         font-size: 1rem;
         padding: 0.7rem;
     }
-}
+} */
 
 
 /* ====================
@@ -585,3 +586,16 @@ SWIPER
     object-fit: cover;
   }
   
+.share-button button{
+    margin-right: 10px;
+}
+  
+.share-button h3{
+    padding-bottom: 10px;
+}
+
+.share-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
