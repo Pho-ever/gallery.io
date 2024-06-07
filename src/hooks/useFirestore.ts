@@ -20,7 +20,7 @@ const useFIrestore = ( collectionName: string ) => {
         const getData = async () => {
           setIsLoading(true)
             try {
-                const q = query(collection(db, collectionName), orderBy(orderByAction, "desc"));
+                const q = query(collection(db, collectionName), orderBy(orderByAction, "asc"));
                 unsubscribe = onSnapshot(q, (querySnapshot) => {
                   const images: Image[] = [];
                   querySnapshot.forEach((doc) => {
@@ -38,7 +38,7 @@ const useFIrestore = ( collectionName: string ) => {
                     })
                   });
                   setDocs(images);
-                  // setOrderByAction("createdAt")
+                  // setOrderByAction("")
                   setIsLoading(false)
                 });
             } catch (error) {

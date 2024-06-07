@@ -28,6 +28,7 @@ export default function LightBox({closeLightBox, userUrl, userEmail, userCaption
     imageObj.open(userUrl)
   }
 
+
   return (
     <div>
       <div className={styles.lightBox}>
@@ -52,8 +53,6 @@ export default function LightBox({closeLightBox, userUrl, userEmail, userCaption
                             <p>Caption: {userCaption}</p>
                           <p>Description: {userDesc}</p>
                         </div>
-
-                        <ShareButtons/>
                       
                       <div>
                         <button className={styles.share} onClick={()=> setShowEdit(!showEdit)}>
@@ -70,7 +69,9 @@ export default function LightBox({closeLightBox, userUrl, userEmail, userCaption
 
                   <div className={styles.navigation}>
                     <button
-                      onClick={prevSlide}>
+                      onClick={prevSlide}
+                      // onKeyDown={prevKeydown}
+                      >
                       <img
                         alt="left-arrow"
                         width="80px"
@@ -78,7 +79,9 @@ export default function LightBox({closeLightBox, userUrl, userEmail, userCaption
                     </button>
 
                     <button
-                      onClick={nextSlide}>
+                      onClick={nextSlide}
+                      // onKeyDown={nextKeydown}
+                      >
                       <img
                         alt="right-button"
                         width="80px"
@@ -94,6 +97,10 @@ export default function LightBox({closeLightBox, userUrl, userEmail, userCaption
                       </ImageEditorComponent>
                   </div>
                 </div>}
+
+                {/* <div className="styles.mobileView"> */}
+                          <ShareButtons/>
+                        {/* </div> */}
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 
 import styles from "../styles/imageGallery.module.css";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import useFIrestore from '../hooks/useFirestore';
 import { TailSpin } from 'react-loader-spinner';
 import LightBox from "./lightBox"
@@ -13,15 +13,23 @@ export default function ImageGallery() {
 
   const { docs: images, isLoading, setOrderByAction } = useFIrestore('images');
   const [dropdownIndex, setIsDropdownIndex] = useState(-1);
+  const [ selectedOption, setSelectedOption] = useState("createdAt")
 
-  const [ selectedValue, setSelectedValue] = useState("createdAt")
+  const filter = [
+    { key: 'Sort by', value: '', disabled: true },
+    { key: 'Most recent', value: 'createdAt' },
+    { key: 'Email (A-Z)', value: 'userEmail' },
+    { key: 'Description(A-Z)', value: 'userDescription' },
+    { key: 'Caption(A-Z)', value: 'userCaption' },
+  ];
 
 
-  const filter = [ "createdAt", "userEmail", "userDescription", "userCaption", "imageUrl"]
-
-  const handleUserClick = (filter: string) => {
-    setSelectedValue(filter);
+  const handleDropdownChange = (selectedValue: string) => {
+    setSelectedOption(selectedValue);
+    setOrderByAction(selectedValue)
+    console.log(selectedValue)
   };
+
   
   const handleShowLightbox = (index: any) => {
     const activeIndex = dropdownIndex === index ? -1 : index
@@ -36,10 +44,9 @@ export default function ImageGallery() {
     return handleShowLightbox(index + 1)
   }
 
-  useEffect(() => {
-    // Example of setting the order by action from outside the hook
-    setOrderByAction(selectedValue); // Change the order by field as needed
-  }, [selectedValue, setOrderByAction]);
+  // useEffect((selectedValue: any) => {
+  //   setOrderByAction(selectedValue); // Change the order by field as needed
+  // }, [setOrderByAction]);
 
   return (
     <div>
@@ -50,7 +57,7 @@ export default function ImageGallery() {
         </div> 
         : 
         <>
-          <FilterDropdown data={filter} onUserClick={handleUserClick} pickedd={selectedValue}/>
+          <FilterDropdown data={filter} onChange={handleDropdownChange}/>
 
           <div className={styles.container}>
             {
