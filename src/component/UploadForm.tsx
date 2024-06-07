@@ -71,7 +71,7 @@ const UploaderForm = () => {
       setCaption(caption)
       setDescription(description)
       startUpload(selectedFile)
-      toast.success("Image Uploaded", {
+      toast.success("Uploading Image...", {
         position: "top-center",
       });
       setUploadModal(false)

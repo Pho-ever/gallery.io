@@ -18,9 +18,9 @@ export default function ImageGallery() {
   const filter = [
     { key: 'Sort by', value: '', disabled: true },
     { key: 'Most recent', value: 'createdAt' },
-    { key: 'Email (A-Z)', value: 'userEmail' },
-    { key: 'Description(A-Z)', value: 'userDescription' },
-    { key: 'Caption(A-Z)', value: 'userCaption' },
+    { key: 'Email (Z-A)', value: 'userEmail' },
+    { key: 'Description(Z-A)', value: 'userDescription' },
+    { key: 'Caption(Z-A)', value: 'userCaption' },
   ];
 
 

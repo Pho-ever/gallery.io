@@ -20,7 +20,7 @@ const useFIrestore = ( collectionName: string ) => {
         const getData = async () => {
           setIsLoading(true)
             try {
-                const q = query(collection(db, collectionName), orderBy(orderByAction, "asc"));
+                const q = query(collection(db, collectionName), orderBy(orderByAction, "desc"));
                 unsubscribe = onSnapshot(q, (querySnapshot) => {
                   const images: Image[] = [];
                   querySnapshot.forEach((doc) => {
